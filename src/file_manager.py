@@ -6,13 +6,14 @@ from src.merchant import Merchant
 class FileManager:
     def read_merchants(self, csv_path: str) -> list[Merchant]:
         merchants = []
-        with open(csv_path, newline='', encoding='utf-8') as csvfile:
+        with open(csv_path, newline='', encoding='utf-8-sig') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 merchant = Merchant(
                     merchant_id=row.get("id", "").strip(),
                     name=row.get("name", "").strip(),
                 )
+                print(merchant.merchant_id)
                 merchants.append(merchant)
         return merchants
     
