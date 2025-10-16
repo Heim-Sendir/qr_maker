@@ -33,7 +33,6 @@ class FileManager:
                     os.remove(os.path.join(root, file))
                 for dir_ in dirs:
                     os.rmdir(os.path.join(root, dir_))
-            print(f'🧹 Папка {self.base_output} очищена')
         else:
             print(f'⚠️ Папка {self.base_output} не найдена')
 
