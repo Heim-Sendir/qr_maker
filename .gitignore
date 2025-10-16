@@ -20,9 +20,9 @@ dist/
 src/output/*
 !src/output/
 !src/output/.gitkeep
-src/data/*csv
+src/data/*.csv
 !src/data/.gitkeep
-src/templates/*png
+src/templates/*.png
 
 # --- OS ---
 .DS_Store
