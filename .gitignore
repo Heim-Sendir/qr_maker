@@ -17,9 +17,7 @@ venv/
 build/
 dist/
 *.egg-info/
-src/output/*
-!src/output/
-!src/output/.gitkeep
+src/output/
 src/data/*.csv
 !src/data/.gitkeep
 src/templates/*.png
