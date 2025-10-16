@@ -31,7 +31,7 @@ class QRGenerator:
         qr = qrcode.QRCode(
             version=None,
             error_correction=ERROR_CORRECT_H,
-            box_size=15,
+            box_size=20,
             border=4
         )
 
