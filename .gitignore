@@ -20,7 +20,8 @@ dist/
 src/output/*
 !src/output/
 !src/output/.gitkeep
-data/*csv
+src/data/*csv
+!src/data/.gitkeep
 src/templates/*png
 
 # --- OS ---
