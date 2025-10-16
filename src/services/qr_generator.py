@@ -41,7 +41,7 @@ class QRGenerator:
         img = qr.make_image(fill_color='black', back_color='white')
         return img
 
-    def generate_url(self, merchant):
+    def generate_url(self, merchant) -> None:
         merchant.url = self._build_full_url(merchant.merchant_id)
 
         qr_img = self._create_custom_qr(merchant.url)
@@ -53,6 +53,8 @@ class QRGenerator:
         merchant.qr_code_path = file_path
 
         with open(file_path, 'rb') as f:
-            merchant.qr_code_base64 = base64.b64encode(f.read()).decode('utf-8')
+            merchant.qr_code_base64 = (
+                base64.b64encode(f.read()).decode('utf-8')
+                )
 
-        print (f'[+] QR создан для {merchant.name}')
+        print(f'[+] QR создан для {merchant.name}')

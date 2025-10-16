@@ -1,6 +1,6 @@
 import csv
 import json
-from src.merchant import Merchant
+from src.models.merchant import Merchant
 
 
 class FileManager:
@@ -15,7 +15,7 @@ class FileManager:
                 )
                 merchants.append(merchant)
         return merchants
-    
+
     def save_report(self, merchants: list[Merchant], output_path: str):
         data = [m.to_dict() for m in merchants]
         with open(output_path, "w", encoding="utf-8") as f:
