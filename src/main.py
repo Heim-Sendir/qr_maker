@@ -45,14 +45,19 @@ def main():
         merchants = fm.read_merchants('data/merchants.csv')
 
         template = TemplateRenderer('src/templates/base_template.png')
-        positions = [(10, 10), (20, 20), (30, 30), (40, 40)]
+        positions = [
+            (494, 244),
+            (494, 700),
+            (1515, 244),
+            (1515, 700)
+            ]
         output_dir = fm.get_today_folder()
 
         for m in merchants:
             qr_img = qr.generate_url_with_template(m)
             combined = template.place_qr(qr_img, positions)
             output_path = os.path.join(output_dir,
-                                       f'{m.name}_with_template.png')
+                                       f'{m.name}_template.png')
             combined.save(output_path)
 
     elif args.clean:

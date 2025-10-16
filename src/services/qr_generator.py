@@ -1,6 +1,7 @@
 import base64
 import os
 
+from PIL import Image
 from src.utils.qr_utils import create_custom_qr
 from src.utils.file_utils import FileManager
 
@@ -22,7 +23,7 @@ class QRGenerator:
 
     def generate_url(self, merchant, return_img=False):
         merchant.url = self._build_url(merchant.merchant_id)
-        qr_img = create_custom_qr(merchant.url)
+        qr_img = self._buidl_qr(merchant.url)
 
         if return_img:
             return qr_img
@@ -34,6 +35,7 @@ class QRGenerator:
 
     def generate_url_with_template(self, merchant):
         merchant.url = self._build_url(merchant.merchant_id)
-        qr_img = self._buidl_qr(merchant.url, size=8, border=1)
+        qr_img = self._buidl_qr(merchant.url, size=9, border=1)
+        qr_img = qr_img.resize((414, 414), Image.LANCZOS)
         print(f'✅ QR сохранён: {merchant.name}')
         return qr_img
