@@ -17,8 +17,8 @@ venv/
 build/
 dist/
 *.egg-info/
-src/output/
-src/data/
+output/
+data/
 
 # --- OS ---
 .DS_Store
