@@ -17,9 +17,11 @@ venv/
 build/
 dist/
 *.egg-info/
-output/*png
+src/output/*
+!src/output/
+!src/output/.gitkeep
 data/*csv
-src/templates/*.png
+src/templates/*png
 
 # --- OS ---
 .DS_Store
