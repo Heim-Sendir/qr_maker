@@ -1,7 +1,9 @@
 import argparse
+import os
 
 from src.utils.file_utils import FileManager
 from src.services.qr_generator import QRGenerator
+from src.services.template_render import TemplateRenderer
 
 
 def main():
@@ -37,7 +39,21 @@ def main():
 
     elif args.template:
         print('🖼️ Режим: генерация QR + шаблон')
-        pass
+
+        fm = FileManager()
+        qr = QRGenerator()
+        merchants = fm.read_merchants('data/merchants.csv')
+
+        template = TemplateRenderer('src/templates/base_template.png')
+        positions = [(10, 10), (20, 20), (30, 30), (40, 40)]
+        output_dir = fm.get_today_folder()
+
+        for m in merchants:
+            qr_img = qr.generate_url(m, return_img=True)
+            combined = template.place_qr(qr_img, positions)
+            output_path = os.path.join(output_dir,
+                                       f'{m.name}_with_template.png')
+            combined.save(output_path)
 
     elif args.clean:
         print("🧹 Режим: очистка папки output")

@@ -6,12 +6,3 @@ class Merchant:
 
     def __repr__(self):
         return f'{self.name}: {self.url}'
-
-# def to_dict(self):
-#     return {
-#         "merchant_id": self.merchant_id,
-#         "name": self.name,
-#         "url": self.url,
-#         "qr_code_path": self.qr_code_path,
-#         "qr_code_base64": self.qr_code_base64
-#     }
