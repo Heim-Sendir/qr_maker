@@ -49,7 +49,7 @@ def main():
         output_dir = fm.get_today_folder()
 
         for m in merchants:
-            qr_img = qr.generate_url(m, return_img=True)
+            qr_img = qr.generate_url_with_template(m)
             combined = template.place_qr(qr_img, positions)
             output_path = os.path.join(output_dir,
                                        f'{m.name}_with_template.png')
