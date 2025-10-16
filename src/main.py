@@ -61,9 +61,9 @@ def main():
             combined.save(output_path)
 
     elif args.clean:
-        print("🧹 Режим: очистка папки output")
+        print('🧹 Режим: очистка папки')
         fm.clear_output()
-        print("✅ Папка output очищена")
+        print('✅ Папка "output" очищена')
 
     else:
         print("❌ Ошибка: укажите режим работы --qr, --template или --clean")
