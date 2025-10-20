@@ -105,7 +105,7 @@ pip install -r requirements.txt</pre>
         "id": "1234",
         "name": "name 1",
         "url": "https://yoursite.com/{base64}",
-        "qr_path": "output\\{date}\\name 1.png",
+        "qr_path": "output\\{current date}\\name 1.png",
         "create_time": "{current time}"
     }
 ]
