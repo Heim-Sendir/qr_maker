@@ -17,11 +17,11 @@ https://beepul.uz/actions/payment?qr=2&<base64>
 
 
 ## ⚙️ Установка
-`git clone <репозиторий>
+<pre>git clone <репозиторий>
 cd qr_maker
 python -m venv venv
 venv\Scripts\activate
-pip install -r requirements.txt`
+pip install -r requirements.txt</pre>
 
 
 ## 🧰 Структура проекта
@@ -46,34 +46,34 @@ pip install -r requirements.txt`
 
 ## 🧩 Использование
 
-Генерация обычных QR
+Генерация обычных QR - 
 `py -m src.main --qr`
 
-Генерация QR в шаблон
+Генерация QR в шаблон - 
 `py -m src.main --template`
 
-Очистка папки output
+Очистка папки output - 
 `py -m src.main --clean`
 
 
 
 ## 🧱 Формат CSV
-id,name
+<pre>id,name
 1234,name1
 1234,name2
-1234,name3
+1234,name3</pre>
 
 
 ## 📦 Результат
 После запуска создаётся папка:
-output/16.10.2025/
+<pre>output/16.10.2025/
 ├── name1.png
 ├── name2.png
-└── name3.png
+└── name3.png</pre>
 
 или, при шаблонном режиме:
 
-output/16.10.2025/
+<pre>output/16.10.2025/
 ├── name1_with_template.png
 ├── name2_with_template.png
-└── name3_with_template.png
+└── name3_with_template.png</pre>
