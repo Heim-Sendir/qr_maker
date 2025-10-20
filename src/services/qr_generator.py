@@ -4,26 +4,29 @@ import os
 from PIL import Image
 from src.utils.qr_utils import create_custom_qr
 from src.utils.file_utils import FileManager
+from src.config import (BASE_URL, CR_VALUE, QR_BOX_SIZE, QR_BORDER,
+                        QR_BOX_SIZE_SMALL, QR_BORDER_SMALL)
 
 
 class QRGenerator:
-    BASE_URL = 'https://beepul.uz/actions/payment?qr=2&'
 
     def __init__(self, output_dir='output'):
         self.fm = FileManager()
         self.output_dir = output_dir
 
     def _build_url(self, merchant_id: str) -> str:
-        raw_data = f'm={merchant_id}&cr=860'
+        raw_data = f'm={merchant_id}&{CR_VALUE}'
         encoded_data = base64.b64encode(raw_data.encode()).decode()
-        return self.BASE_URL + encoded_data
+        print(BASE_URL + encoded_data)
+        return BASE_URL + encoded_data
 
-    def _buidl_qr(self, data: str, size: int = 20, border: int = 4):
+    def _buidl_qr(self, data: str, size: int, border: int):
         return create_custom_qr(data, size=size, border=border)
 
     def generate_url(self, merchant, return_img=False):
         merchant.url = self._build_url(merchant.merchant_id)
-        qr_img = self._buidl_qr(merchant.url)
+        qr_img = self._buidl_qr(merchant.url, QR_BOX_SIZE, QR_BORDER)
+        print(qr_img)
 
         if return_img:
             return qr_img
@@ -35,7 +38,7 @@ class QRGenerator:
 
     def generate_url_with_template(self, merchant):
         merchant.url = self._build_url(merchant.merchant_id)
-        qr_img = self._buidl_qr(merchant.url, size=9, border=1)
+        qr_img = self._buidl_qr(merchant.url, QR_BOX_SIZE_SMALL, QR_BORDER_SMALL)
         qr_img = qr_img.resize((414, 414), Image.LANCZOS)
         print(f'✅ QR сохранён: {merchant.name}')
         return qr_img
