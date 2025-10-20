@@ -1,9 +1,9 @@
-🧩 QR Maker
+# 🧩 QR Maker
 
 Инструмент для массовой генерации QR-кодов с автоматическим формированием ссылок и возможностью вставки QR в шаблонное изображение.
 
 
-🚀 Возможности
+## 🚀 Возможности
 
 Чтение списка мерчантов из CSV-файла (id, name)
 
@@ -16,7 +16,7 @@ https://beepul.uz/actions/payment?qr=2&<base64>
 Очистка выходных файлов через параметр --clean
 
 
-⚙️ Установка
+## ⚙️ Установка
 `git clone <репозиторий>
 cd qr_maker
 python -m venv venv
@@ -24,8 +24,8 @@ venv\Scripts\activate
 pip install -r requirements.txt`
 
 
-🧰 Структура проекта
-<pre>```qr_maker/
+## 🧰 Структура проекта
+<pre>qr_maker/
 │
 ├── src/
 │   ├── main.py                 # Точка входа (CLI)
@@ -40,11 +40,11 @@ pip install -r requirements.txt`
 │       ├── file_utils.py       # Работа с файлами и датами
 │       └── qr_utils.py         # Генерация QR (Pillow + qrcode)
 │
-└── requirements.txt```</pre>
+└── requirements.txt</pre>
 
 
 
-🧩 Использование
+## 🧩 Использование
 
 Генерация обычных QR
 `py -m src.main --qr`
@@ -57,14 +57,14 @@ pip install -r requirements.txt`
 
 
 
-🧱 Формат CSV
+## 🧱 Формат CSV
 id,name
 1234,name1
 1234,name2
 1234,name3
 
 
-📦 Результат
+## 📦 Результат
 После запуска создаётся папка:
 output/16.10.2025/
 ├── name1.png
