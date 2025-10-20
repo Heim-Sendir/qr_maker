@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-class ReportService:
+class ReportGenerator:
     def __init__(self, file_manager):
         self.fm = file_manager
     
