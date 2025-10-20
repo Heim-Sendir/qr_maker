@@ -1,3 +1,4 @@
+
 class Merchant:
     def __init__(self, merchant_id: str, name: str):
         self.merchant_id = merchant_id
