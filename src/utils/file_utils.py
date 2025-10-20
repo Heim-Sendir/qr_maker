@@ -7,7 +7,7 @@ from src.models.merchant import Merchant
 
 
 class FileManager:
-    def __init__(self, base_output='output'):
+    def __init__(self, base_output='C:/Users/ACherevatiy/OneDrive - beeline.uz/Рабочий стол/файлы/QR'):
         self.base_output = base_output
 
     def read_merchants(self, csv_path: str) -> list[Merchant]:
