@@ -4,6 +4,7 @@ import os
 from src.utils.file_utils import FileManager
 from src.services.qr_generator import QRGenerator
 from src.services.template_render import TemplateRenderer
+from src.services.report_generator import ReportGenerator
 
 
 def main() -> None:
@@ -27,6 +28,7 @@ def main() -> None:
     args = parser.parse_args()
 
     fm = FileManager()
+    report = ReportGenerator(fm)
 
     if args.qr:
         print('🧩 Режим: генерация QR')
@@ -35,6 +37,12 @@ def main() -> None:
 
         for m in merchants:
             qr.generate_url(m)
+            report.append({
+                'id': m.merchant_id,
+                'name': m.name,
+                'url': m.url,
+                'qr_path': getattr(m, 'qr_path', None),
+            })
         print('✅ QR-коды успешно сгенерированы!')
 
     elif args.template:
@@ -59,6 +67,12 @@ def main() -> None:
             output_path = os.path.join(output_dir,
                                        f'{m.name}_template.png')
             combined.save(output_path)
+            report.append({
+                'id': m.merchant_id,
+                'name': m.name,
+                'url': m.url,
+                'qr_path': getattr(m, 'qr_path', None),
+            })
 
     elif args.clean:
         print('🧹 Режим: очистка папки')

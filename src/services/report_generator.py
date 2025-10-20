@@ -10,7 +10,7 @@ class ReportGenerator:
     
     def _get_report_path(self) -> Path:
         folder = Path(self.fm.get_today_folder())
-        return folder
+        return folder / 'report.json'
 
     def append(self, merchant_data: dict) -> None:
         report_path = self._get_report_path()
