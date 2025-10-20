@@ -37,20 +37,22 @@ pip install -r requirements.txt
 │
 ├── src/
 │   ├── main.py                  # Точка входа (CLI)
-│   ├── data/                    # CSV с мерчантами
-│   ├── output/                  # Папка для готовых QR
+│   ├── config.py                # Файл с конфигурациями
+│   ├── data/                    # CSV шаблон
+│   ├── output/                  # Директория для готовых QR
 │   ├── templates/               # PNG шаблон
 │   ├── models/merchant.py       # Класс мерчанта
 │   ├── services/
 │   │   ├── qr_generator.py      # Логика генерации QR
 │   │   └── template_render.py   # Вставка QR в шаблон
-|   |   └── report_generator.py  # Генерация отчета в json
+│   |   └── report_generator.py  # Генерация отчета в json
 │   └── utils/
 │       ├── file_utils.py        # Работа с файлами и датами
 │       └── qr_utils.py          # Генерация QR (Pillow + qrcode)
 │
-└── requirements.txt</pre>
-
+└── requirements.txt
+└── .env                         # Файл с константами
+</pre>
 
 
 
@@ -81,17 +83,22 @@ pip install -r requirements.txt
 
 ## 📦 Результат
 После запуска создаётся папка:
-<pre>output/16.10.2025/
+<pre>
+output/{current date}/
 ├── name1.png
 ├── name2.png
-└── name3.png</pre>
+└── name3.png
+</pre>
 
 или, при шаблонном режиме:
 
-<pre>output/16.10.2025/
+<pre>
+output/{current date}/
 ├── name1_with_template.png
 ├── name2_with_template.png
-└── name3_with_template.png</pre>
+└── name3_with_template.png
+</pre>
+
 
 
 ## 📄 Генерация отчета
