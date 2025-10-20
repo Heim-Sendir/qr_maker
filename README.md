@@ -97,4 +97,16 @@ pip install -r requirements.txt</pre>
 -Наименование мерчанта
 -Полный адрес ссылки с base64
 -Пусть сохранения файла
--Дата создания файла изображения</pre>
+-Дата создания файла изображения
+
+Пример:
+[
+    {
+        "id": "1234",
+        "name": "name 1",
+        "url": "https://yoursite.com/{base64}",
+        "qr_path": "output\\{date}\\name 1.png",
+        "create_time": "{current time}"
+    }
+]
+</pre>
