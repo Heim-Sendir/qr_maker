@@ -19,10 +19,10 @@ class QRGenerator:
         encoded_data = base64.b64encode(raw_data.encode()).decode()
         return BASE_URL + encoded_data
 
-    def _buidl_qr(self, data: str, size: int, border: int):
+    def _buidl_qr(self, data: str, size: int, border: int) -> function:
         return create_custom_qr(data, size=size, border=border)
 
-    def generate_url(self, merchant, return_img=False):
+    def generate_url(self, merchant, return_img=False) -> None:
         merchant.url = self._build_url(merchant.merchant_id)
         qr_img = self._buidl_qr(merchant.url, QR_BOX_SIZE, QR_BORDER)
 
@@ -34,7 +34,7 @@ class QRGenerator:
         qr_img.save(qr_path)
         print(f'✅ QR сохранён: {merchant.name}')
 
-    def generate_url_with_template(self, merchant):
+    def generate_url_with_template(self, merchant) -> Image:
         merchant.url = self._build_url(merchant.merchant_id)
         qr_img = self._buidl_qr(merchant.url, QR_BOX_SIZE_SMALL, QR_BORDER_SMALL)
         qr_img = qr_img.resize((414, 414), Image.LANCZOS)

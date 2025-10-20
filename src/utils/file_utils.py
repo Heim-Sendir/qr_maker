@@ -21,13 +21,13 @@ class FileManager:
                 merchants.append(Merchant(row['id'], row['name']))
         return merchants
 
-    def get_today_folder(self):
+    def get_today_folder(self) -> str:
         today = datetime.now().strftime('%d.%m.%y')
         path = os.path.join(self.base_output, today)
         os.makedirs(path, exist_ok=True)
         return path
 
-    def clear_output(self):
+    def clear_output(self) -> None:
         if os.path.exists(self.base_output):
             for root, dirs, files in os.walk(self.base_output, topdown=False):
                 for file in files:
@@ -37,7 +37,7 @@ class FileManager:
         else:
             print(f'⚠️ Папка {self.base_output} не найдена')
 
-    def save_report(self, merchants: list[Merchant], output_path: str):
+    def save_report(self, merchants: list[Merchant], output_path: str) -> None:
         data = [m.to_dict() for m in merchants]
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
