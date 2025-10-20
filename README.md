@@ -17,15 +17,15 @@ https://beepul.uz/actions/payment?qr=2&<base64>
 
 
 ⚙️ Установка
-git clone <репозиторий>
+`git clone <репозиторий>
 cd qr_maker
 python -m venv venv
 venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirements.txt`
 
 
 🧰 Структура проекта
-qr_maker/
+<pre>```qr_maker/
 │
 ├── src/
 │   ├── main.py                 # Точка входа (CLI)
@@ -40,20 +40,20 @@ qr_maker/
 │       ├── file_utils.py       # Работа с файлами и датами
 │       └── qr_utils.py         # Генерация QR (Pillow + qrcode)
 │
-└── requirements.txt
+└── requirements.txt```</pre>
 
 
 
 🧩 Использование
 
 Генерация обычных QR
-py -m src.main --qr
+`py -m src.main --qr`
 
 Генерация QR в шаблон
-py -m src.main --template
+`py -m src.main --template`
 
 Очистка папки output
-py -m src.main --clean
+`py -m src.main --clean`
 
 
 
