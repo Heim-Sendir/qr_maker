@@ -67,6 +67,7 @@ def main() -> None:
             output_path = os.path.join(output_dir,
                                        f'{m.name}_template.png')
             combined.save(output_path)
+            m.qr_path = output_path
             report.append({
                 'id': m.merchant_id,
                 'name': m.name,
