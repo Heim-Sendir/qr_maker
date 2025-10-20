@@ -6,7 +6,7 @@ from src.services.qr_generator import QRGenerator
 from src.services.template_render import TemplateRenderer
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description='QR Generator Tool')
     parser.add_argument(
         '--qr',
