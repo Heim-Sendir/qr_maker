@@ -5,7 +5,7 @@ from PIL import Image
 from src.utils.qr_utils import create_custom_qr
 from src.utils.file_utils import FileManager
 from src.config import (BASE_URL, CR_VALUE, QR_BOX_SIZE, QR_BORDER,
-                        QR_BOX_SIZE_SMALL, QR_BORDER_SMALL)
+                        QR_BOX_SIZE_SMALL, QR_BORDER_SMALL, RESIZE_IMG)
 
 
 class QRGenerator:
@@ -37,6 +37,6 @@ class QRGenerator:
     def generate_url_with_template(self, merchant) -> Image:
         merchant.url = self._build_url(merchant.merchant_id)
         qr_img = self._buidl_qr(merchant.url, QR_BOX_SIZE_SMALL, QR_BORDER_SMALL)
-        qr_img = qr_img.resize((414, 414), Image.LANCZOS)
+        qr_img = qr_img.resize(RESIZE_IMG, Image.LANCZOS)
         print(f'✅ QR сохранён: {merchant.name}')
         return qr_img
