@@ -22,10 +22,10 @@ https://yoursite.com/{base64}
 
 ## ⚙️ Установка
 ```bash
-git clone <репозиторий>
+git clone
 cd qr_maker
 python -m venv venv
-venv\Scripts\activate
+source venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
