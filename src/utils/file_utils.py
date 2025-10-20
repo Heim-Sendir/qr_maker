@@ -4,11 +4,11 @@ import json
 
 from datetime import datetime
 from src.models.merchant import Merchant
-from src.config import OUTPUT_DIR
+from src.config import OUTPUT_DIR_TEST, OUTPUT_DIR_PROD
 
 
 class FileManager:
-    def __init__(self, base_output=OUTPUT_DIR):
+    def __init__(self, base_output=OUTPUT_DIR_TEST):
         self.base_output = base_output
 
     def read_merchants(self, csv_path: str) -> list[Merchant]:
