@@ -17,7 +17,6 @@ class QRGenerator:
     def _build_url(self, merchant_id: str) -> str:
         raw_data = f'm={merchant_id}&{CR_VALUE}'
         encoded_data = base64.b64encode(raw_data.encode()).decode()
-        print(BASE_URL + encoded_data)
         return BASE_URL + encoded_data
 
     def _buidl_qr(self, data: str, size: int, border: int):
@@ -26,7 +25,6 @@ class QRGenerator:
     def generate_url(self, merchant, return_img=False):
         merchant.url = self._build_url(merchant.merchant_id)
         qr_img = self._buidl_qr(merchant.url, QR_BOX_SIZE, QR_BORDER)
-        print(qr_img)
 
         if return_img:
             return qr_img
