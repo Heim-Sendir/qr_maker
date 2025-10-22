@@ -36,8 +36,3 @@ class FileManager:
                     os.rmdir(os.path.join(root, dir_))
         else:
             print(f'⚠️ Папка {self.base_output} не найдена')
-
-    def save_report(self, merchants: list[Merchant], output_path: str) -> None:
-        data = [m.to_dict() for m in merchants]
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
