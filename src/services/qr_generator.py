@@ -10,9 +10,8 @@ from src.config import (BASE_URL, CR_VALUE, QR_BOX_SIZE, QR_BORDER,
 
 class QRGenerator:
 
-    def __init__(self, output_dir='output'):
-        self.fm = FileManager()
-        self.output_dir = output_dir
+    def __init__(self, fm):
+        self.fm = fm
 
     def _build_url(self, merchant_id: str) -> str:
         raw_data = f'm={merchant_id}&{CR_VALUE}'

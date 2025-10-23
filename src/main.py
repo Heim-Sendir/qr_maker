@@ -25,15 +25,20 @@ def main() -> None:
         action='store_true',
         help='Очистка выходной директории output'
     )
+    parser.add_argument(
+        '--dev',
+        action='store_true',
+        help='Режим разработки - сохраняет файлы в дирректорию output'
+    )
 
     args = parser.parse_args()
 
-    fm = FileManager()
+    fm = FileManager(dev_mode=args.dev)
     report = ReportGenerator(fm)
 
     if args.qr:
 
-        qr = QRGenerator()
+        qr = QRGenerator(fm)
         merchants = fm.read_merchants('data/merchants.csv')
         report = ReportGenerator(fm)
         runner = GenerationRunner(fm, report, qr)
@@ -41,7 +46,7 @@ def main() -> None:
 
     elif args.template:
 
-        qr = QRGenerator()
+        qr = QRGenerator(fm)
         merchants = fm.read_merchants('data/merchants.csv')
         report = ReportGenerator(fm)
 

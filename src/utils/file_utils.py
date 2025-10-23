@@ -1,15 +1,13 @@
-import os
-import csv
-import shutil
+import os, csv, shutil
 
 from datetime import datetime
 from src.models.merchant import Merchant
-from src.config import OUTPUT_DIR_TEST, OUTPUT_DIR_PROD
+from src.config import OUTPUT_DIR_DEV, OUTPUT_DIR_PROD
 
 
 class FileManager:
-    def __init__(self, base_output=OUTPUT_DIR_TEST):
-        self.base_output = base_output
+    def __init__(self, dev_mode=False):
+        self.base_output = OUTPUT_DIR_DEV if dev_mode else OUTPUT_DIR_PROD
 
     def read_merchants(self, csv_path: str) -> list[Merchant]:
         merchants = []
