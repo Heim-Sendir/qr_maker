@@ -60,7 +60,6 @@ def main() -> None:
     elif args.clean:
         print('🧹 Режим: очистка папки')
         fm.clear_output()
-        print('✅ Папка "output" очищена')
 
     else:
         print("❌ Ошибка: укажите режим работы --qr, --template или --clean")

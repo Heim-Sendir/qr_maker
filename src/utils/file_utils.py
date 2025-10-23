@@ -1,6 +1,6 @@
 import os
 import csv
-import json
+import shutil
 
 from datetime import datetime
 from src.models.merchant import Merchant
@@ -28,11 +28,10 @@ class FileManager:
         return path
 
     def clear_output(self) -> None:
-        if os.path.exists(self.base_output):
-            for root, dirs, files in os.walk(self.base_output, topdown=False):
-                for file in files:
-                    os.remove(os.path.join(root, file))
-                for dir_ in dirs:
-                    os.rmdir(os.path.join(root, dir_))
+        today_folder = self.get_today_folder()
+
+        if os.path.exists(today_folder):
+            shutil.rmtree(today_folder)
+            print(f'✅ Папка {today_folder} удалена')
         else:
-            print(f'⚠️ Папка {self.base_output} не найдена')
+            print(f'⚠️ Папка {today_folder} не найдена')
