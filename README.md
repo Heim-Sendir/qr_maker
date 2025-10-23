@@ -94,9 +94,9 @@ py -m src.main --clean --dev
 
 ## 🧱 Формат CSV
 <pre>id,name
-1234,name1
-1234,name2
-1234,name3</pre>
+1234,name_1
+1234,name_2
+1234,name_3</pre>
 
 
 
