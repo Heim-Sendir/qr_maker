@@ -95,8 +95,8 @@ py -m src.main --clean --dev
 ## 🧱 Формат CSV
 <pre>id,name
 1234,name_1
-1234,name_2
-1234,name_3</pre>
+5678,name_2
+9012,name_3</pre>
 
 
 
@@ -139,14 +139,14 @@ output/{current date}/
         "create_time": "{current time}"
     },
     {
-        "id": "1234",
+        "id": "5678",
         "name": "name_2",
         "url": "https://yoursite.com/{base64}",
         "qr_path": "output\\{current date}\\name_2.png",
         "create_time": "{current time}"
     },
     {
-        "id": "1234",
+        "id": "9012",
         "name": "name_3",
         "url": "https://yoursite.com/{base64}",
         "qr_path": "output\\{current date}\\name_3.png",
@@ -156,3 +156,4 @@ output/{current date}/
 </pre>
 
 Если в течении текущего дня будет использована новая генерация изображений, то отчет дополняется
+Дублированные ID в отчет не попадают
