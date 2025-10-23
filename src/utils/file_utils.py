@@ -9,7 +9,7 @@ class FileManager:
     def __init__(self, dev_mode=False):
         self.base_output = OUTPUT_DIR_DEV if dev_mode else OUTPUT_DIR_PROD
 
-    def read_merchants(self, csv_path: str) -> list[Merchant]:
+    def read_file(self, csv_path: str) -> list[Merchant]:
         merchants = []
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         csv_path = os.path.join(base_dir, csv_path)

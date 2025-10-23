@@ -6,6 +6,7 @@ from src.services.qr_generator import QRGenerator
 from src.services.template_render import TemplateRenderer
 from src.services.report_generator import ReportGenerator
 from src.services.generation_runner import GenerationRunner
+from src.config import BASE_FILE_PATH, BASE_TEMPLATE_PATH
 
 
 def main() -> None:
@@ -39,7 +40,7 @@ def main() -> None:
     if args.qr:
 
         qr = QRGenerator(fm)
-        merchants = fm.read_merchants('data/merchants.csv')
+        merchants = fm.read_file(BASE_FILE_PATH)
         report = ReportGenerator(fm)
         runner = GenerationRunner(fm, report, qr)
         runner.run(merchants, mode='qr')
@@ -47,10 +48,10 @@ def main() -> None:
     elif args.template:
 
         qr = QRGenerator(fm)
-        merchants = fm.read_merchants('data/merchants.csv')
+        merchants = fm.read_file(BASE_FILE_PATH)
         report = ReportGenerator(fm)
 
-        template = TemplateRenderer('src/templates/base_template.png')
+        template = TemplateRenderer(BASE_TEMPLATE_PATH)
         positions = [
             (494, 244),
             (494, 700),
