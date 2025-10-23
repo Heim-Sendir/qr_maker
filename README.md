@@ -105,18 +105,18 @@ py -m src.main --clean --dev
 После запуска создаётся папка:
 <pre>
 output/{current date}/
-├── name1.png
-├── name2.png
-└── name3.png
+├── name_1.png
+├── name_2.png
+└── name_3.png
 </pre>
 
 или, при шаблонном режиме:
 
 <pre>
 output/{current date}/
-├── name1_with_template.png
-├── name2_with_template.png
-└── name3_with_template.png
+├── name_1_template.png
+├── name_2_template.png
+└── name_3_template.png
 </pre>
 
 
@@ -133,9 +133,23 @@ output/{current date}/
 [
     {
         "id": "1234",
-        "name": "name 1",
+        "name": "name_1",
         "url": "https://yoursite.com/{base64}",
-        "qr_path": "output\\{current date}\\name 1.png",
+        "qr_path": "output\\{current date}\\name_1.png",
+        "create_time": "{current time}"
+    },
+    {
+        "id": "1234",
+        "name": "name_2",
+        "url": "https://yoursite.com/{base64}",
+        "qr_path": "output\\{current date}\\name_2.png",
+        "create_time": "{current time}"
+    },
+    {
+        "id": "1234",
+        "name": "name_3",
+        "url": "https://yoursite.com/{base64}",
+        "qr_path": "output\\{current date}\\name_3.png",
         "create_time": "{current time}"
     }
 ]
