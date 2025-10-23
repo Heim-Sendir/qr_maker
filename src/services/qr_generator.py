@@ -33,11 +33,9 @@ class QRGenerator:
         qr_path = os.path.join(output_dir, f'{merchant.name}.png')
         qr_img.save(qr_path)
         merchant.qr_path = qr_path
-        print(f'✅ QR сохранён: {merchant.name}')
 
     def generate_url_with_template(self, merchant) -> Image:
         merchant.url = self._build_url(merchant.merchant_id)
         qr_img = self._buidl_qr(merchant.url, QR_BOX_SIZE_SMALL, QR_BORDER_SMALL)
         qr_img = qr_img.resize(RESIZE_IMG, Image.LANCZOS)
-        print(f'✅ QR сохранён: {merchant.name}')
         return qr_img

@@ -32,5 +32,3 @@ class ReportGenerator:
         
         with open(report_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
-
-        print(f"📄 Добавлен в отчёт: {merchant_data.get('name')} ({report_path})")
