@@ -1,4 +1,6 @@
-import os, csv, shutil
+import os
+import csv
+import shutil
 
 from datetime import datetime
 from src.models.merchant import Merchant
