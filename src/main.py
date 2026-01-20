@@ -1,5 +1,4 @@
 import argparse
-import os
 
 from src.utils.file_utils import FileManager
 from src.services.qr_generator import QRGenerator
@@ -31,6 +30,11 @@ def main() -> None:
         action='store_true',
         help='Режим разработки - сохраняет файлы в дирректорию output'
     )
+    parser.add_argument(
+        '--super',
+        action='store_true',
+        help='Генерация QR кода для супермерчанта'
+    )
 
     args = parser.parse_args()
 
@@ -39,7 +43,7 @@ def main() -> None:
 
     if args.qr:
 
-        qr = QRGenerator(fm)
+        qr = QRGenerator(fm, is_super=args.super)
         merchants = fm.read_file(BASE_FILE_PATH)
         report = ReportGenerator(fm)
         runner = GenerationRunner(fm, report, qr)
@@ -59,9 +63,11 @@ def main() -> None:
             (1515, 700)
             ]
 
-        runner = GenerationRunner(fm, report, qr, template=template, positions=positions)
+        runner = GenerationRunner(fm, report, qr,
+                                  template=template,
+                                  positions=positions,
+                                  is_super=args.super)
         runner.run(merchants, mode='template')
-
 
     elif args.clean:
         print('🧹 Режим: очистка папки')
