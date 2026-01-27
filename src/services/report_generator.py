@@ -7,7 +7,7 @@ from pathlib import Path
 class ReportGenerator:
     def __init__(self, file_manager):
         self.fm = file_manager
-    
+
     def _get_report_path(self) -> Path:
         folder = Path(self.fm.get_today_folder())
         current_date = datetime.now().strftime('%d.%m.%y')
@@ -29,6 +29,6 @@ class ReportGenerator:
             existing_ids = {item.get('id') for item in data}
             if merchant_data.get('id') not in existing_ids:
                 data.append(merchant_data)
-        
+
         with open(report_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
